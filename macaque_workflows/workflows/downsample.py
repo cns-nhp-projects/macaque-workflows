@@ -2,7 +2,7 @@ import nipype.interfaces.utility as niu
 import nipype.pipeline.engine as pe
 from nipype.interfaces import fsl
 
-from macaque_utils.interfaces.resample import ResampleImage
+from macaque_workflows.interfaces.resample import ResampleImage
 
 
 def init_downsample_wf(wf_name: str = "downsample_wf"):

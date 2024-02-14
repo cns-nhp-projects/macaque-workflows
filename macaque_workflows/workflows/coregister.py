@@ -4,10 +4,10 @@ from nipype.interfaces import ants
 from nipype.interfaces import fsl
 from pkg_resources import resource_filename as pkgr_fn
 
-from macaque_utils.interfaces import qc
-from macaque_utils.interfaces.resample import ResampleImage
-from macaque_utils.interfaces.select_coreg import SelectCoregistration
-from macaque_utils.utils import check_params
+from macaque_workflows.interfaces import qc
+from macaque_workflows.interfaces.resample import ResampleImage
+from macaque_workflows.interfaces.select_coreg import SelectCoregistration
+from macaque_workflows.utils import check_params
 
 
 def init_coregistration_wf(
