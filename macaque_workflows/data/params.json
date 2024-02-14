@@ -1,0 +1,32 @@
+{
+	"coregistration_wf": {
+		"t1_to_source": {
+			"cost": "mutualinfo",
+			"dof": 6
+		},
+		"source_to_t1": {
+			"initial_moving_transform_com": 1,
+			"dimension": 3,
+			"transforms": [ "Rigid" ],
+			"transform_parameters": [ [ 0.2 ] ],
+			"number_of_iterations": [ [ 500, 250, 50 ] ],
+			"metric": [ "MI" ],
+			"metric_weight": [ 1.0 ],
+			"sampling_strategy": [ "Random" ],
+			"sampling_percentage": [ 0.5 ],
+			"radius_or_number_of_bins": [ 56 ],
+			"convergence_threshold": [ 1e-6 ],
+			"convergence_window_size": [ 10 ],
+			"smoothing_sigmas": [ [ 2, 1, 0 ] ],
+			"sigma_units": [ "vox" ],
+			"shrink_factors": [ [ 2, 2, 1 ] ],
+			"use_histogram_matching": [ false ],
+			"winsorize_lower_quantile": 0.005,
+			"winsorize_upper_quantile": 0.995,
+			"write_composite_transform": true,
+			"interpolation": "BSpline",
+			"collapse_output_transforms": false,
+			"output_inverse_warped_image": true
+		}
+	}
+}
