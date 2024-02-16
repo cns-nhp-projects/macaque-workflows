@@ -2,7 +2,7 @@
 name = "macaque_workflows"
 version = "0.0.1"
 description = "Macaque utility workflows"
-authors = ["Dan Gale <d.gale@queensu.ca>"]
+authors = [""]
 readme = "README.md"
 
 [tool.poetry.dependencies]
