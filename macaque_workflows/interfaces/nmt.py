@@ -10,8 +10,6 @@ from nipype.interfaces.base import SimpleInterface
 from nipype.interfaces.base import TraitedSpec
 from nipype.interfaces.base import traits
 
-pjoin = os.path.join
-
 
 class _InstallNMTInputSpec(BaseInterfaceInputSpec):
     install_path = traits.String()
@@ -82,7 +80,10 @@ class HemisphereMask(SimpleInterface):
         for m, name in zip([right_mask, left_mask], ["right", "left"]):
             img = nib.Nifti1Image(m.astype(np.float32), mask_img.affine)
 
-            out = pjoin(runtime.cwd, basename.replace(".nii.gz", f"_{name}.nii.gz"))
+            out = os.path.join(
+                runtime.cwd,
+                basename.replace(".nii.gz", f"_{name}.nii.gz"),
+            )
             self._results[f"{name}_mask"] = out
             img.to_filename(out)
 
@@ -159,7 +160,7 @@ class NMTDataSink(SimpleInterface):
             "cortical_mask.nii.gz": self.inputs.cortex_mask,
         }
         for k, v in filemap.items():
-            shutil.copy2(v, pjoin(dest, k))
+            shutil.copy2(v, os.path.join(dest, k))
 
         self._results["out_path"] = dest
 
