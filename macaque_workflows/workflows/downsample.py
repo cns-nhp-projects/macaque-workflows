@@ -5,7 +5,7 @@ from nipype.interfaces import fsl
 from macaque_workflows.interfaces.resample import ResampleImage
 
 
-def init_downsample_wf(wf_name: str = "downsample_wf"):
+def init_downsample_wf(wf_name: str = "downsample_wf") -> pe.Workflow:
     """Downsamples various structural images to BOLD/DWI resolution
 
     Subject anatomical and NMT-space images are downsampled to the reference
