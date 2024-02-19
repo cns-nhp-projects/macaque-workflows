@@ -40,7 +40,7 @@ def init_coregistration_wf(
         Coregistration workflow
     """
     if not params:
-        params = pkgr_fn("macaque_func.data", "params.json")
+        params = pkgr_fn("macaque_workflows.data", "params.json")
     params = check_params(params, required={"coregistration_wf"})
 
     wf = pe.Workflow(name=wf_name)
