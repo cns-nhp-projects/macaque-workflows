@@ -8,6 +8,7 @@ NMT workflow runs once at the start of everything. This workflow:
 Additional custom pre-generated segmentation and visual/insula mask files are
 copied to the custom directory
 """
+import os
 import shutil
 from pathlib import Path
 
@@ -97,8 +98,10 @@ def setup_nmt(template_dir: str, work_dir: str):
     Returns:
         pathlib.Path: Path to .5mm NMT directory
     """
-    nmt_wf = init_nmt_wf(template_dir, work_dir)
-    nmt_wf.run()
+
+    if os.path.exists(template_dir) and not os.listdir(template_dir):
+        nmt_wf = init_nmt_wf(template_dir, work_dir)
+        nmt_wf.run()
 
     nmt_dir = Path(template_dir, "NMT_v2.0_sym/NMT_v2.0_sym_05mm")
 
