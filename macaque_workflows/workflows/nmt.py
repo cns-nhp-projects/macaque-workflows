@@ -14,12 +14,13 @@ from pathlib import Path
 
 import nipype.interfaces.utility as niu
 import nipype.pipeline.engine as pe
-from mnpipe.interfaces.nmt import HemisphereMask
-from mnpipe.interfaces.nmt import InstallNMT
-from mnpipe.interfaces.nmt import NMTDataSink
 from nipype import config
 from nipype.interfaces import fsl
 from pkg_resources import resource_filename as pkgr_fn
+
+from macaque_workflows.interfaces.nmt import HemisphereMask
+from macaque_workflows.interfaces.nmt import InstallNMT
+from macaque_workflows.interfaces.nmt import NMTDataSink
 
 config.update_config({"execution": {"crashfile_format": "txt"}})
 
