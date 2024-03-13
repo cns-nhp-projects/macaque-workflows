@@ -42,6 +42,7 @@ def init_coregistration_wf(
     if not params:
         params = pkgr_fn("macaque_workflows.data", "params.json")
     params = check_params(params, required={"coregistration_wf"})
+    params = params["coregistration_wf"]
 
     wf = pe.Workflow(name=wf_name)
     input_node = pe.Node(
