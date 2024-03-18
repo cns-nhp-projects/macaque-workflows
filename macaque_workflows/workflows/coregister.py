@@ -43,7 +43,6 @@ def init_coregistration_wf(
         params = pkgr_fn("macaque_workflows.data", "params.json")
     params = check_params(params, required={"coregistration_wf"})
     params = params["coregistration_wf"]
-    print(params)
 
     wf = pe.Workflow(name=wf_name)
     input_node = pe.Node(
@@ -67,8 +66,8 @@ def init_coregistration_wf(
         fsl.FLIRT(**params["t1_to_source"]),
         name="t1_brain_to_source",
     )
-    wf.connect(input_node, "t1_brain", t1_to_source, "in_file")
-    wf.connect(input_node, "source_file", t1_to_source, "reference")
+    wf.connect(input_node, "t1_brain", t1_brain_to_source, "in_file")
+    wf.connect(input_node, "source_file", t1_brain_to_source, "reference")
 
     # --- compare coregistrations and select best ---
     t1_list = pe.Node(niu.Merge(2), name="t1_list")
