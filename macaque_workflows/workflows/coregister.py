@@ -80,7 +80,7 @@ def init_coregistration_wf(
 
     xfm_list = pe.Node(niu.Merge(2), name="xfm_list")
     wf.connect(t1_to_source, "out_matrix_file", xfm_list, "in1")
-    wf.connect(t1_brain_to_source, "out_matrix_file", xfm_list, "in1")
+    wf.connect(t1_brain_to_source, "out_matrix_file", xfm_list, "in2")
 
     get_best_xfm = pe.Node(niu.Select(), name="get_best_xfm")
     wf.connect(xfm_list, "out", get_best_xfm, "inlist")
