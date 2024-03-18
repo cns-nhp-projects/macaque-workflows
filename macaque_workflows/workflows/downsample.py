@@ -65,8 +65,8 @@ def init_downsample_wf(wf_name: str = "downsample_wf") -> pe.Workflow:
         ),
         name="downsample_brain_mask",
     )
-    wf.connect(input_node, "reference", downsample_nmt, "reference_image")
-    wf.connect(input_node, "t1_mask", downsample_nmt, "input_image")
+    wf.connect(input_node, "reference", downsample_brain_mask, "reference_image")
+    wf.connect(input_node, "t1_mask", downsample_brain_mask, "input_image")
 
     # ----------------------------
     # Segmentation and tissue maps
