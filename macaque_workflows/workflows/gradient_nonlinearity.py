@@ -45,7 +45,7 @@ def init_gradient_nonlinearity_wf(
         ),
         name="output_node",
     )
-    wf.connect(warpfield, "out_warp", output_node, "warp1")
+    wf.connect(warpfield, "out_file", output_node, "warp1")
 
     if not warp_field_only:
 
